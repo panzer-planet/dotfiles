@@ -1,0 +1,26 @@
+# Syntax Highlighting
+include ~/.nano/syntax/ALL.nanorc
+# Launch Options
+set positionlog
+set morespace
+set smooth
+set tabsize 4
+set tabstospaces
+set const # show line numbers
+set nohelp
+set nowrap
+# Shortcut Reference
+####################
+# ^G - Help
+# ^F - Forward
+# ^B - Back
+# ^N - Next line
+# ^P - Previous line
+# ^E - End of line
+# ^A - Beginning of line
+# ^V - Next page
+# ^Y - Previous Page
+# M-U - Undo
+# M-E - Redo
+# ^Space - Forward one word
+# M-Space - Backward one word
