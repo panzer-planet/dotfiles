@@ -52,18 +52,23 @@ export LSCOLORS=BxDxGxFxCxegedabagaced
 
 # Aliases
 alias "mysqldump=/Applications/MySQLWorkbench.app/Contents/MacOS/mysqldump" 
-alias nano="/usr/local/Cellar/nano/2.6.1/bin/nano" #homebrew nano
+alias nano="/usr/local/Cellar/nano/2.7.1/bin/nano" #homebrew nano
 alias mysql="/usr/local/mysql/bin/mysql"
 alias ll="ls -la"
 alias folders="find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"
 alias grep='grep --color=auto'
+alias muttlocal='sudo mutt -f /var/mail/werner'
+alias updatedb="sudo /usr/libexec/locate.updatedb"
+
 # Directory navigation aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias github="cd ~/github"
-
+alias consent="cd ~/github/consent"
+alias jpp="prettyjson"
+eval $(thefuck --alias)
 
 # Bash History
 export HISTCONTROL="erasedups:ignoreboth" # Remove duplicates
@@ -91,12 +96,18 @@ PS1='\[$reset\]\[$red$bold\]\u\[$reset\]@\h \[$blue$bold\]\w\[$reset\] \$ '
 export HOMEBREW_GITHUB_API_TOKEN="543ce8f2cffc9f0b15b756a70d05380cbe8517ce"
 export ANDROID_HOME="/Users/Werner/Library/Android/sdk/"
 export PATH=$PATH:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/usr/local/bin:/usr/local/sbin
+
 # Welcome Message
-WELCOME_COMMANDER="${brown}${bold}Welcome back ${USER}... ${reset}"
-WELCOME_FORTUNE="$green$bold$(fortune)$reset"
+WELCOME_COMMANDER="${brown}${bold}Welcome ${USER} ${reset} "
+WELCOME_FORTUNE="🔮 $green$bold $(fortune)$reset"
+
 echo $WELCOME_COMMANDER
-echo -n "Uptime "
-uptime | awk -F'( |,|:)+' '{print $4,$5",",$6,"hours,",$7,"minutes."}'
+printf "💻  ${bold}Terminals:${reset}\n${cyan}"
+who
+printf "🕰  ${white}${bold} Uptime:${reset}\n${purple}"
+
+uptime
+printf "${reset}"
 echo $WELCOME_FORTUNE | fold -sw 80
 
 
@@ -104,3 +115,10 @@ export NVM_DIR="/Users/werner/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+export PATH="$PATH:`yarn global bin`"
+export REACT_EDITOR=vscode
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+#Java
+export JAVA_HOME=$(/usr/libexec/java_home)
