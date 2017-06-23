@@ -1,5 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+#D0=$(date +%s)
 
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -49,7 +50,7 @@ export LSCOLORS=BxDxGxFxCxegedabagaced
 # 10. directory writable to others, with sticky bit
 # 11. directory writable to others, without sticky
 # bit
-
+#D1=$(date +%s) 
 # Aliases
 alias ll="ls -la"
 alias folders="find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn"
@@ -74,6 +75,7 @@ export HISTSIZE=100000
 shopt -s histappend # Don't clear history each time
 shopt -s cmdhist
 stty stop ""
+#D2=$(date +%s)
 
 # ANSI Escaping with tput (The correct way)
 red=$(tput setaf 1)
@@ -98,6 +100,9 @@ uptime
 printf "${reset}"
 echo $WELCOME_FORTUNE | fold -sw 80
 
+#D3=$(date +%s)
 
-
-
+#echo "D0 $D0"
+#echo "D1 $D1"
+#echo "D2 $D2"
+#echo "D3 $D3"
